@@ -1,36 +1,48 @@
+:root {
+  --body-bg: #123;
+  --nav-bg: rgb(69,92,115);
+}
+/* 
 html {
   background-color: #f1f5f9;
   font-family: sans-serif;
 }
 
 html.dark {
-  background-color: #0d0950;
+  background-color: var(--body-bg);
   color: #fff;
 }
 
 .dark .nav-links a {
   color: #fff;
-}
+} */
 
 body {
-  margin: 0 auto;
+  background-color: var(--body-bg);
+  color: #fff;
+  margin: 0;
   width: 100%;
-  max-width: 80ch;
-  padding: 1rem;
+  /* max-width: 80ch; */
+  /* padding: 1rem; */
   line-height: 1.5;
+  display: grid;
+  grid-template-columns: 20rem 1fr;
+  gap: 2rem;
+
+  min-height: 100vh;
 }
 
 * {
   box-sizing: border-box;
 }
 
-h1 {
+/* h1 {
   margin: 1rem 0;
   font-size: 2.5rem;
-}
+} */
 
 /* estilos de la barra de navegación*/
-.hamburger {
+/* .hamburger {
   padding-right: 20px;
   cursor: pointer;
 }
@@ -64,29 +76,85 @@ h1 {
 
 .nav-links a:hover,
 .nav-links a:focus {
-  background-color: #ff9776;
+  background-color: var(--body-bg);
 }
 
 .expanded {
   display: unset;
-}
+} */
 
 @media screen and (min-width: 636px) {
-  .nav-links {
-    margin-left: 5em;
+  nav {
+    /* margin-left: 5em;
     display: block;
     position: static;
-    width: auto;
-    background: none;
+    width: auto; */
+    position: sticky;
+    top: 0;
+    max-height: 100svh;
+    background: var(--nav-bg);
+    height: 100%;
+  }
+  
+  .nav-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    display: grid;
+    gap: 4rem;
+    padding-block: 2rem;
+    font-size: 2rem;
+    a {
+      color: #fafafa;
+      text-decoration: none;
+    }
+
+    li {
+      padding: 1rem 2rem;
+      margin-left: 2rem;
+      border-radius: 100vh 0 0 100vh;
+    }
+
+    li.active {
+      background: var(--body-bg);
+      position: relative;
+
+      ::before,
+      ::after {
+        --border-radius: 2rem;
+
+        content: '';
+        position: absolute;
+        width: var(--border-radius);
+        height: var(--border-radius);
+        right: 0;
+        background: var(--border-radius);
+        border-radius: 100vw;
+      }
+
+      ::before {
+        top: calc(var(--border-radius) * -1);
+        border-radius: 0 0 100vw 0;
+        box-shadow: 10px 10px 0 10px var(--body-bg);
+      }
+
+      ::after {
+        bottom: calc(var(--border-radius) * -1);
+        border-radius: 0 100vw 0 0;
+        box-shadow: 10px -10px 0 10px var(--body-bg);
+      }
+    }
+
   }
 
-  .nav-links a {
+  /* .nav-links a {
     display: inline-block;
     padding: 15px 20px;
   }
 
   .hamburger {
     display: none;
-  }
+  } */
 
 }

@@ -3,12 +3,14 @@ import Navigation from './Navigation.astro'
 import Hamburger from './Hamburger.astro'
 import ThemeIcon from './ThemeIcon.astro';
 
+const {pageOrigin} = Astro.props
+
 ---
 
 <header>
   <nav>
-    <Hamburger/>
-    <ThemeIcon/>
-    <Navigation/>
+    <!-- <Hamburger/>
+    <ThemeIcon/> -->
+    <Navigation pageOrigin={pageOrigin}/>
   </nav>
 </header>

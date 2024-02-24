@@ -1,6 +1,10 @@
-<div class="nav-links">
-  <a href="/">Inicio</a>
-  <a href="/about/">Sobre mi</a>
-  <a href="/blog/">Blog</a>
-  <a href="/tags/">Etiquetas</a>
-</div>
+---
+const {pageOrigin} = Astro.props
+---
+
+<ul class="nav-list">
+  <li class={pageOrigin === "index"? "active":""}><a href="/" aria-current="page">Inicio</a></li>
+  <li class={pageOrigin === "about"? "active":""}><a href="/about/">Sobre mi</a></li>
+  <li class={pageOrigin === "blog"? "active":""}><a href="/blog/">Blog</a></li>
+  <li class={pageOrigin === "tag"? "active":""}><a href="/tags/">Etiquetas</a></li>
+</ul>

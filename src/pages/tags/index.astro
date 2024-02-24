@@ -8,7 +8,7 @@ const tags = [...new Set(allPosts.flatMap((post: any) => post.frontmatter.tags))
 const pageTitle = 'Índice de etiquetas'
 ---
 
-  <BaseLayout pageTitle={pageTitle}>
+  <BaseLayout pageTitle={pageTitle} pageOrigin="tag">
     <div class="tags">
       {tags.map((tag) => <p class="tag"><a href={`/tags/${tag}`}>{tag}</a></p>)}
     </div>

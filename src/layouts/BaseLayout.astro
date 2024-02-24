@@ -2,8 +2,9 @@
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import '../styles/global.css';
+import {ViewTransitions} from 'astro:transitions'
 
-const { pageTitle, isAbout } = Astro.props;
+const { pageTitle, pageOrigin } = Astro.props;
 ---
 
 <html lang="es">
@@ -13,6 +14,7 @@ const { pageTitle, isAbout } = Astro.props;
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <title>{pageTitle}</title>
+    <ViewTransitions />
 
     <style>
       .title {
@@ -28,10 +30,12 @@ const { pageTitle, isAbout } = Astro.props;
     </style>
   </head>
   <body>
-    <Header />
-    <h1 class={isAbout ? 'title': ''}>{pageTitle}</h1>
-    <slot />
-    <Footer />
+    <Header pageOrigin={pageOrigin}/>
+    <div>
+      <h1>{pageTitle}</h1>
+      <slot />
+      <Footer />
+    </div>
     <script>
       import '../scripts/menu.js';
     </script>
