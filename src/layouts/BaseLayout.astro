@@ -31,11 +31,11 @@ const { pageTitle, pageOrigin } = Astro.props;
   </head>
   <body>
     <Header pageOrigin={pageOrigin}/>
-    <div>
+    <main>
       <h1>{pageTitle}</h1>
       <slot />
-      <Footer />
-    </div>
+      <!-- <Footer /> -->
+    </main>
     <script>
       import '../scripts/menu.js';
     </script>

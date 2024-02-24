@@ -8,10 +8,22 @@ const pageTitle = "Mi blog de Astro aprendizaje"
 
 ---
 <BaseLayout pageTitle={pageTitle} pageOrigin="blog">
-  <p>Aquí es donde publicaré sobre mi viaje de aprendizaje Astro.</p>
+  <h3>Aquí es donde publicaré sobre mi viaje de aprendizaje Astro.</h3>
   <ul>
     {allPost.map(post => (
-      <BlogPost title={post.frontmatter.title} url={post.url} />
+      <BlogPost title={post.frontmatter.title} url={post.url} image={post.frontmatter.image}/>
     ))}
   </ul>
 </BaseLayout>
+
+<style>
+  ul {
+    margin: 0; 
+    padding: 0; 
+    list-style: none; 
+
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));  
+    gap: 1rem
+  }
+</style>

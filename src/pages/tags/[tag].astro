@@ -29,13 +29,25 @@ const { posts } = Astro.props;
 // const filteredPosts = posts.filter((post: any) => post.frontmatter.tags?.includes(tag))
 ---
 
-<BaseLayout pageTitle={tag}>
-  <p>Entradas etiquetadas con {tag}</p>
+<BaseLayout pageTitle={tag.toUpperCase()}>
+  <h3>Entradas etiquetadas con <strong>{tag}</strong></h3>
   <ul>
     {
       posts.map((post: any) => (
-        <BlogPost title={post.frontmatter.title} url={post.url}/>
+        <BlogPost title={post.frontmatter.title} url={post.url} image={post.frontmatter.image}/>
       )) 
     }
   </ul>
 </BaseLayout>
+
+<style>
+  ul {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));  
+    gap: 1rem
+  }
+
+  strong {
+    color: #ed7f50;
+  }
+</style>
